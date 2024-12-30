@@ -55,7 +55,7 @@ const Meals = () => {
         description: "A delicious plant-based burger with fries.",
         price: "$9.49",
         image:
-          "https://www.realsimple.com/thmb/z3cQCYXTyDQS9ddsqqlTVE8fnpc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/real-simple-mushroom-black-bean-burgers-recipe-0c365277d4294e6db2daa3353d6ff605.jpg",
+          "https://www.thespruceeats.com/thmb/e-lll-PpJ5F-MF4C57LYag3IAB8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-vegan-black-bean-veggie-burgers-3377008-hero-05-f7c0f0d9865e48b6be52a4c76ee22438.jpg",
       },
       {
         id: 3,
@@ -143,7 +143,7 @@ const Meals = () => {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container p-6 mx-auto">
       <motion.h1
         className="text-3xl font-bold text-center text-[#2C3E50] mb-8 mt-[60px]"
         initial={{ opacity: 0 }}
@@ -153,11 +153,11 @@ const Meals = () => {
         Select Your Meal
       </motion.h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {["breakfast", "lunch", "dinner", "highTea"].map((mealType) => (
           <motion.div
             key={mealType}
-            className="bg-white rounded-lg shadow-md p-6"
+            className="p-6 bg-white rounded-lg shadow-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -181,20 +181,20 @@ const Meals = () => {
                     value={meal.name}
                     checked={selectedMeals[mealType].includes(meal.name)}
                     onChange={() => handleMealSelect(mealType, meal.name)}
-                    className="h-5 w-5 text-indigo-500"
+                    className="w-5 h-5 text-indigo-500"
                   />
                   <div className="flex items-center space-x-4">
                     <img
                       src={meal.image}
                       alt={meal.name}
-                      className="w-16 h-16 object-cover rounded-md"
+                      className="object-cover w-16 h-16 rounded-md"
                     />
                     <div>
-                      <p className="text-gray-600 font-semibold">{meal.name}</p>
-                      <p className="text-gray-500 text-sm">
+                      <p className="font-semibold text-gray-600">{meal.name}</p>
+                      <p className="text-sm text-gray-500">
                         {meal.description}
                       </p>
-                      <p className="text-gray-800 font-semibold">
+                      <p className="font-semibold text-gray-800">
                         {meal.price}
                       </p>
                     </div>
@@ -219,7 +219,7 @@ const Meals = () => {
             id="roomNumber"
             value={roomNumber}
             onChange={(e) => setRoomNumber(e.target.value)}
-            className="mt-2 p-2 w-full border border-gray-300 rounded-md"
+            className="w-full p-2 mt-2 border border-gray-300 rounded-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -238,7 +238,7 @@ const Meals = () => {
             id="members"
             value={members}
             onChange={(e) => setMembers(Math.max(1, e.target.value))}
-            className="mt-2 p-2 w-full border border-gray-300 rounded-md"
+            className="w-full p-2 mt-2 border border-gray-300 rounded-md"
             min="1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -248,7 +248,7 @@ const Meals = () => {
 
         <motion.button
           onClick={handleConfirmOrder}
-          className="mt-4 w-full bg-blue-500 text-white p-3 rounded-md text-lg font-semibold"
+          className="w-full p-3 mt-4 text-lg font-semibold text-white bg-blue-500 rounded-md"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
@@ -258,7 +258,7 @@ const Meals = () => {
 
       {orderConfirmed && (
         <motion.div
-          className="mt-8 text-center text-lg font-semibold text-green-600"
+          className="mt-8 text-lg font-semibold text-center text-green-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
